@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+  }
+  .react-calendar {
+    width: 100%;
+  }
+
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-weight: 500;
+    .selected {
+      @apply text-white bg-primary;
+    }
+  }
+  .pagination a {
+    padding: 5px 5px; /* adjust padding as needed */
+  }
+
+  .pagination li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    /* background-color: #157572;  */
+    transition: #157572 0.3s ease;
+    text-transform: uppercase;
+  }
+
+  /* .pagination li:hover {
+    background-color: #157572;
+  } */
+
+  .pagination li.active {
+    background-color: #157572;
+    color: #157572;
+  }
+
+  .pagination li.disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  .pagination li:first-child,
+  .pagination li:last-child,
+  .pagination li:nth-child(2),
+  .pagination li:nth-last-child(2) {
+    width: auto;
+    height: auto;
+    margin: 8px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .pagination li:first-child::before,
+  .pagination li:last-child::after {
+    content: "";
+    display: inline-block;
+    height: 20px;
+    border-left: 1px solid #157572;
+    vertical-align: middle;
+    margin: 0 10px;
+  }
+
+  .pagination li:first-child::before {
+    border-left: none;
+  }
+
+  .pagination li.disabled:first-child::before,
+  .pagination li.disabled:last-child::after {
+    border-color: transparent;
+  }
+
+  .pagination li:first-child:hover::before,
+  .pagination li:last-child:hover::after {
+    border-color: #e1e1e1;
+  }
+
+  .pagination li:first-child {
+    margin-right: auto;
+  }
+
+  .pagination li:last-child {
+    margin-left: auto;
+  }
+  .tooltip {
+    background-color: aquamarine;
+  }
+}
+
+@layer components {
+  .modal-overlay {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(255, 255, 255, 0.75);
+    z-index: 9998;
+  }
+  .modal-overlay::before,
+  .modal-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+    pointer-events: none;
+    z-index: -1;
+    box-sizing: border-box;
+    filter: blur(10px);
+  }
+}
